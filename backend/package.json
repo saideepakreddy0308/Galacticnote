@@ -1,0 +1,20 @@
+{
+  "name": "cloudnotes-backend",
+  "version": "1.0.0",
+  "description": "cloudnotes - your notebook on the cloud",
+  "main": "index.js",
+  "scripts": {
+    " server": "nodemon server.js ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.2.9",
+    "server": "^1.0.37"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
