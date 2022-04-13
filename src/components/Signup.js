@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 
 const Signup = (props) => {
     const [credentials, setCredentials] = useState({name:"",email: "", password: "",cpassword: ""}) 
-    let history = useHistory();
+    let history = useHistory;
     const handleSubmit = async (e) => {
         e.preventDefault();
         const {name,email,password} = credentials;
@@ -31,7 +31,8 @@ const Signup = (props) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
     }
     return (
-        <div className="container">
+        <div className="container mt-2">
+            <h2 className='my-3'>Create an account to use CloudNotes</h2>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="name">Name</label>
