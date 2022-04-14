@@ -50,7 +50,7 @@ const Login = (props) => {
     }
 
     return (
-        <div className='mt-3'>
+        <div className='mt-3 vh-100'>
             {/* <h2>Login to continue to CloudNotes</h2>
             <form  onSubmit={handleSubmit}>
                 <div className="mb-3">
@@ -66,19 +66,19 @@ const Login = (props) => {
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form> */}
 
-            <section class="h-75" >
-                <div class="container h-100">
-                    <div class="row justify-content-sm-center h-100">
-                        {/* <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9"> */}
-                        <div class=" col-md-7 col-sm-9">
+            <section className="h-75 " >
+                <div className="container h-100">
+                    <div className="row justify-content-sm-center h-100">
+                        {/* <div className="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9"> */}
+                        <div className=" col-md-7 col-sm-9">
                         {/* <div className="container mt-5 addnotes" > */}
                 
-                            {/* <div class="text-center my-3">
+                            {/* <div className="text-center my-3">
                                 <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="logo" width="70" />
                             </div> */}
-                            <div class="card shadow-lg" onSubmit={handleSubmit}>
-                                <div class="card-body p-5">
-                                    {/* <h1 class="fs-4 card-title fw-bold mb-4">Login</h1> */}
+                            <div className="card shadow-lg" onSubmit={handleSubmit}>
+                                <div className="card-body p-5">
+                                    {/* <h1 className="fs-4 card-title fw-bold mb-4">Login</h1> */}
                                     <Button className="mb-4" variant="text" color="secondary" startIcon={<ArrowBackIcon />} component={Link} to="/" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif" }}>Home</Button>
                 <h2 style={{ fontWeight: "Bold" }}>Login</h2>
                 <p className="mb-4">Sign in on the internal platform</p>
@@ -87,47 +87,47 @@ const Login = (props) => {
                     <Button size="small" fullWidth className="mb-4" variant="contained" color="error" startIcon={<GoogleIcon />} component={Link} to="/login" style={{ textTransform: "none", fontSize: "1.1rem", color: "White", fontFamily: "'Poppins', sans-serif" }}>Login with Google</Button>
                 </div>
                 <p className="mb-4 d-flex justify-content-center">or login with username and password</p>
-                                    <form method="POST" class="needs-validation" novalidate="" autocomplete="off">
-                                        <div class="mb-3">
+                                    <form method="POST" className="needs-validation" novalidate="" autocomplete="off">
+                                        <div className="mb-3">
                                             <label htmlFor="email" className="text-muted">Email </label>
                                             <input id="email" type="email" className="form-control" name="email" value={credentials.email} onChange={onChange} aria-describedby="emailHelp" required autofocus />
                                             {/* <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div> */}
-                                            <div class="invalid-feedback">
+                                            <div className="invalid-feedback">
                                                 Email is invalid
                                             </div>
                                         </div>
 
-                                        <div class="mb-3">
-                                            <div class="mb-2 w-100">
+                                        <div className="mb-3">
+                                            <div className="mb-2 w-100">
                                                 <label htmlFor="password" className="text-muted">Password</label>
                                                 <input type="password" className="form-control" value={credentials.password} onChange={onChange} name="password" id="password" required />
-                                                {/* <a href="forgot.html" class="float-end">
+                                                {/* <a href="forgot.html" className="float-end">
                                                     Forgot Password?
                                                 </a> */}
                                             </div>
-                                            <div class="invalid-feedback">
+                                            <div className="invalid-feedback">
                                                 Password is required
                                             </div>
                                         </div>
 
-                                        {/* <div class="d-flex align-items-center text-center"> */}
-                                        <div class="my-3 w-100 align-items-center text-center">
-                                            {/* <div class="form-check">
-                                                <input type="checkbox" name="remember" id="remember" class="form-check-input" />
-                                                <label for="remember" class="form-check-label">Remember Me</label>
+                                        {/* <div className="d-flex align-items-center text-center"> */}
+                                        <div className="my-3 w-100 align-items-center text-center">
+                                            {/* <div className="form-check">
+                                                <input type="checkbox" name="remember" id="remember" className="form-check-input" />
+                                                <label for="remember" className="form-check-label">Remember Me</label>
                                             </div> */}
                                             <button type="submit" className="btn btn-primary ms-auto">Login
                                             </button>
                                         </div>
                                     </form>
                                 </div>
-                                <div class="card-footer py-2 border-0">
-                                    <div class="text-center">
-                                        Don't have an account? <a href="/signup" class="text-primary text-decoration-none">Create One</a>
+                                <div className="card-footer py-2 border-0">
+                                    <div className="text-center">
+                                        Don't have an account? <a href="/signup" className="text-primary text-decoration-none">Create One</a>
                                     </div>
                                 </div>
                             </div>
-                             <div class="text-center mt-5 ">
+                             <div className="text-center mt-5 ">
                              <a href="https://github.com/saideepakreddy0308" className='text-decoration-none text-dark text-muted'> Copyright &copy; &mdash; Sai Deepak Reddy Kamaganikuntla</a>
                                 {/* Copyright &copy; 2017-2021 &mdash; Your Company */}
                             </div> 

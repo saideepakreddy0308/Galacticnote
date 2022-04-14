@@ -69,8 +69,9 @@ const Signup = (props) => {
         // </div>
 
 
-        <div>
-            <div className="d-flex shadow-lg">
+        // <div className='container col-md-7 col-sm-9 mt-3'>
+        <div className='container mt-3 vh-100 '>
+            <div className="d-flex shadow-lg p-5">
                 <div className="col-md-5">
                     <img className="img-fluid" src={avataars} alt="register" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                 </div>

@@ -27,9 +27,9 @@ function App() {
     <>
       <NoteState>
         <Router>
-          <Navbar />
-          <Alert alert={alert}/>
-          <div className="container">
+          {/* <Navbar /> */}
+          {/* <Alert alert={alert}/> */}
+          {/* <div className="container"> */}
             <Switch>
               <Route exact path="/">
                 <Home showAlert={showAlert}/>
@@ -44,7 +44,7 @@ function App() {
                 <Signup showAlert={showAlert}/>
               </Route>
             </Switch>
-          </div>
+          {/* </div> */}
         </Router>
       </NoteState>
     </>
