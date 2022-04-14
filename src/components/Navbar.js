@@ -18,19 +18,20 @@ const Navbar = () => {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul className="navbar-nav ms-auto">
+                    {/* <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-auto"> */}
                         <li className="nav-item">
-                            <Link className={`nav-link ${location.pathname==="/"? "active": ""}`} aria-current="page" to="/">Home</Link>
+                            <Link className={`nav-link ${location.pathname==="/"? "active": ""}`} aria-current="page" to="/" variant="text" color="secondary" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "0.9rem" }}>Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className={`nav-link ${location.pathname==="/about"? "active": ""}`} to="/about">About</Link>
+                            <Link className={`nav-link ${location.pathname==="/about"? "active": ""}`} to="/about" variant="text" color="secondary" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "0.9rem" }}>About</Link>
                         </li>
 
                     </ul>
                     {!localStorage.getItem('token')?<form className="d-flex"> 
-                    <Link className="btn btn-primary mx-1" to="/login" role="button">Login</Link>
-                    <Link className="btn btn-primary mx-1" to="/signup" role="button">Signup</Link>
-                    </form>: <button onClick={handleLogout} className="btn btn-primary">Logout</button>}
+                    <Link className="btn btn-primary mx-1 sm" to="/login" role="button" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "0.9rem" }}>Login</Link>
+                    <Link className="btn btn-primary mx-1 sm" to="/signup" role="button" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "0.9rem" }}>Signup</Link>
+                    </form>: <button size="small" onClick={handleLogout} className="btn btn-primary" variant="text" color="secondary" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "0.9rem" }}>Logout</button>}
                 </div>
             </div>
         </nav>

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState, useHistory } from 'reac
 import noteContext from "../context/notes/noteContext"
 import Noteitem from './Noteitem';
 import AddNote from './AddNote';
+import { Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from '@mui/material';
 
 const Notes = (props) => {
     const context = useContext(noteContext);
@@ -36,7 +37,7 @@ const Notes = (props) => {
     }
 
     return (
-        <>
+        <div className="container flex-column">
             <AddNote showAlert={props.showAlert}/>
             <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Launch demo modal
@@ -49,40 +50,50 @@ const Notes = (props) => {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            <form className="mb-3">
+                            <form>
+                            <DialogContent style={{ paddingTop: "0.5rem" }}>
+                        <DialogContentText style={{ fontFamily: "'Poppins', sans-serif", fontSize: "1rem", marginBottom: "0.5rem" }}>
+                            Edit your note. edit the field that you want to edit in note
+                        </DialogContentText>
                                 <div className="mb-3">
-                                    <label htmlFor="title" className="form-label text-muted">Title</label>
+                                    <label inputProps={{minlength:3}} autoFocus required color="secondary" margin="dense" htmlFor="title" className="form-label text-muted">Title</label>
                                     <input type="text" className="form-control" id="etitle" name="etitle" value={note.etitle} aria-describedby="emailHelp" onChange={onChange} minLength={5} required/>
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="description" className="form-label text-muted">Description</label>
+                                    <label inputProps={{minlength:3}} autoFocus required color="secondary" margin="dense" htmlFor="description" className="form-label text-muted">Description</label>
                                     <input type="text" className="form-control" id="edescription" name="edescription" value={note.edescription} onChange={onChange} minLength={5} required/>
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="tag" className="form-label text-muted">Tag</label>
+                                    <label inputProps={{minlength:3}} autoFocus required color="secondary" margin="dense" htmlFor="tag" className="form-label text-muted">Tag</label>
                                     <input type="text" className="form-control" id="etag" name="etag" value={note.etag} onChange={onChange} />
                                 </div>
- 
-                            </form>
-                        </div>
+                                </DialogContent>
                         <div className="modal-footer">
-                            <button ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button disabled={note.etitle.length<5 || note.edescription.length<5} onClick={handleClick} type="button" className="btn btn-primary">Update Note</button>
+                        <DialogActions>
+                        {/* <Button variant="outlined" color="secondary" onClick={handleClose} style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "1rem" }}>Cancel</Button>
+                        <Button disabled={title.length < 3 || description.length < 3 || tag.length < 3 } variant="contained" color="secondary" type="submit" onClick={handleClose} style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "1rem" }}>Edit {note.title}</Button>
+                     */}
+                            <button ref={refClose} type="button" className="btn btn-secondary sm" data-bs-dismiss="modal" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "1rem" }}>Cancel</button>
+                            <button disabled={note.etitle.length<3 || note.edescription.length<3} onClick={handleClick} type="button" className="btn btn-primary sm" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "1rem" }}>Update {note.etitle}</button>
+                            </DialogActions>
+                        </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="row my-3">
+            <div className="row my-3 mx-3 d-flex flex-wrap ">
                 <h2>Your Notes</h2>
-                <div className="container mx-2"> 
+                <div className="container mx-2 "> 
                 {notes.length===0 && 'No notes to display'}
                 </div>
                 {notes.map((note) => {
                     return <Noteitem key={note._id} updateNote={updateNote} showAlert={props.showAlert} note={note} />
                 })}
             </div>
-        </>
+            
+        </div>
     )
 }
 

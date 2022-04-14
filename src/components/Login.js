@@ -2,6 +2,20 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Footer from './Footer'
 import './Login.css'
+import { Link, useNavigate, useLocation } from "react-router-dom";
+// import React, { useContext, useState } from 'react'
+import { TextField, Button, InputAdornment, InputLabel, OutlinedInput, FormControl, IconButton, FormHelperText } from '@mui/material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import GoogleIcon from '@mui/icons-material/Google';
+import FacebookIcon from '@mui/icons-material/Facebook';
+// import { Link, useNavigate, useLocation } from "react-router-dom";
+// // import "../styles/home.css"
+// import Alertss from "./Alertss";
+// import { AlertContext } from '../context/AlertContext';
+// import { useFormik } from 'formik'
+// import * as Yup from 'yup';
+// import Visibility from '@mui/icons-material/Visibility';
+// import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 
 const Login = (props) => {
@@ -52,17 +66,28 @@ const Login = (props) => {
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form> */}
 
-            <section class="h-80" >
-                <div class="container h-80">
+            <section class="h-75" >
+                <div class="container h-100">
                     <div class="row justify-content-sm-center h-100">
-                        <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
-                            <div class="text-center my-3">
+                        {/* <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9"> */}
+                        <div class=" col-md-7 col-sm-9">
+                        {/* <div className="container mt-5 addnotes" > */}
+                
+                            {/* <div class="text-center my-3">
                                 <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="logo" width="70" />
-                            </div>
+                            </div> */}
                             <div class="card shadow-lg" onSubmit={handleSubmit}>
                                 <div class="card-body p-5">
-                                    <h1 class="fs-4 card-title fw-bold mb-4">Login</h1>
-                                    <form method="POST" class="needs-validation" novalidate="" autocomplete="on">
+                                    {/* <h1 class="fs-4 card-title fw-bold mb-4">Login</h1> */}
+                                    <Button className="mb-4" variant="text" color="secondary" startIcon={<ArrowBackIcon />} component={Link} to="/" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif" }}>Home</Button>
+                <h2 style={{ fontWeight: "Bold" }}>Login</h2>
+                <p className="mb-4">Sign in on the internal platform</p>
+                <div className="d-flex">
+                    <Button size="small" fullWidth className="mb-4 me-4" variant="contained" color="primary" startIcon={<FacebookIcon />} component={Link} to="/login" style={{ textTransform: "none", fontSize: "1.1rem", color: "White", fontFamily: "'Poppins', sans-serif" }}>Login with Facebook</Button>
+                    <Button size="small" fullWidth className="mb-4" variant="contained" color="error" startIcon={<GoogleIcon />} component={Link} to="/login" style={{ textTransform: "none", fontSize: "1.1rem", color: "White", fontFamily: "'Poppins', sans-serif" }}>Login with Google</Button>
+                </div>
+                <p className="mb-4 d-flex justify-content-center">or login with username and password</p>
+                                    <form method="POST" class="needs-validation" novalidate="" autocomplete="off">
                                         <div class="mb-3">
                                             <label htmlFor="email" className="text-muted">Email </label>
                                             <input id="email" type="email" className="form-control" name="email" value={credentials.email} onChange={onChange} aria-describedby="emailHelp" required autofocus />
@@ -91,7 +116,7 @@ const Login = (props) => {
                                                 <input type="checkbox" name="remember" id="remember" class="form-check-input" />
                                                 <label for="remember" class="form-check-label">Remember Me</label>
                                             </div> */}
-                                            <button type="submit" className="btn btn-primary ms-auto">Submit
+                                            <button type="submit" className="btn btn-primary ms-auto">Login
                                             </button>
                                         </div>
                                     </form>

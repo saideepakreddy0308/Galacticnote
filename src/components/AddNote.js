@@ -18,10 +18,10 @@ const AddNote = (props) => {
         setNote({...note, [e.target.name]: e.target.value})
     }
     return (
-        <div className="container my-2">
+        <div className="container my-2 ">
             <div class="card ">
             <div class="card-body p-4">
-            <h2>Add new Note</h2>
+            <h2>New Note</h2>
             <form className="my-3">
                 <div className="mb-3">
                     <label htmlFor="title" className="form-label">Title</label>

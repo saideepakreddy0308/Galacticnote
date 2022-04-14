@@ -1,5 +1,17 @@
 import React, {useState} from 'react'
 import { useHistory } from 'react-router-dom'
+import avataars from '../avataaars.png'
+// import React, { useContext, useState } from 'react'
+import { TextField, Button, InputAdornment, InputLabel, OutlinedInput, FormControl, IconButton, FormHelperText } from '@mui/material';
+import Visibility from '@mui/icons-material/Visibility';
+// import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Link, useNavigate } from "react-router-dom";
+// import avataars from "../images/avataaars.png"
+// import Alertss from "./Alertss";
+// import { AlertContext } from '../context/AlertContext';
+// import { useFormik } from 'formik'
+// import * as Yup from 'yup';
 
 const Signup = (props) => {
     const [credentials, setCredentials] = useState({name:"",email: "", password: "",cpassword: ""}) 
@@ -55,30 +67,32 @@ const Signup = (props) => {
         //         <button type="submit" className="btn btn-primary">Submit</button>
         //     </form>
         // </div>
-        <section className="h-80" onSubmit={handleSubmit}>
-		<div className="container h-80">
-			<div className="row justify-content-sm-center h-100">
-				<div className="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
-					<div className="text-center my-3">
-						<img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="logo" width="70" />
-					</div>
-					<div className="card shadow-lg" >
-						<div className="card-body p-5">
-							<h1 className="fs-4 card-title fw-bold mb-4">Signup</h1>
-							<form method="POST" className="needs-validation" novalidate="" autocomplete="off">
-                            <div className="mb-3">
+
+
+        <div>
+            <div className="d-flex shadow-lg">
+                <div className="col-md-5">
+                    <img className="img-fluid" src={avataars} alt="register" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                </div>
+
+                <div className="col-md-7 ps-5 pe-5 pt-5" style={{ width: "50%" }}>
+                    <Button className="mb-4" variant="text" color="secondary" startIcon={<ArrowBackIcon />} component={Link} to="/" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif" }}>Home</Button>
+                    <h2 style={{ fontWeight: "Bold" }}>Create a new account</h2>
+                    <p className="mb-4">Use your email to create a new account</p>
+                    <form autoComplete="off" noValidate onSubmit={handleSubmit}>
+                    <div className="mb-4">
                                             <label htmlFor="name" className="text-muted">Name </label>
                                             <input id="name" type="text" className="form-control" name="name" value={credentials.name} onChange={onChange} required autofocus />
                                             
                                         </div>
-                            <div className="mb-3">
+                            <div className="mb-4">
                                             <label htmlFor="email" className="text-muted">Email </label>
                                             <input id="email" type="email" className="form-control" name="email" value={credentials.email} onChange={onChange} aria-describedby="emailHelp" required autofocus />
                                             <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                                             
                                         </div>
 
-                                        <div className="mb-3">
+                                        <div className="mb-2">
                                             <div className="mb-2 w-100">
                                                 <label htmlFor="password" className="text-muted">Password</label>
                                                 <input type="password" className="form-control" value={credentials.password} onChange={onChange} name="password" id="password" required />
@@ -89,7 +103,7 @@ const Signup = (props) => {
 
                                         </div>
 
-                                        <div className="mb-3">
+                                        <div className="mb-2">
                                             <div className="mb-2 w-100">
                                                 <label htmlFor="cpassword" className="text-muted">Confirm Password</label>
                                                 <input type="password" className="form-control" value={credentials.cpassword} onChange={onChange} name="cpassword" id="cpassword" required />
@@ -100,40 +114,97 @@ const Signup = (props) => {
                                             
                                         </div>
 
-								{/* <div className="d-flex align-items-center">
-									<div className="form-check">
-										<input type="checkbox" name="remember" id="remember" className="form-check-input" />
-										<label for="remember" className="form-check-label">Remember Me</label>
-									</div>
-									<button type="submit" className="btn btn-primary ms-auto">
-										Login
-									</button>
-								</div> */}
-                                 <div class="my-3 w-100 align-items-center text-center">
-                                            {/* <div class="form-check">
-                                                <input type="checkbox" name="remember" id="remember" class="form-check-input" />
-                                                <label for="remember" class="form-check-label">Remember Me</label>
-                                            </div> */}
-                                            <button type="submit" className="btn btn-primary ms-auto">Submit
-                                            </button>
-                                        </div>
-							</form>
-						</div>
-						<div className="card-footer py-2 border-0">
-							<div className="text-center">
-								Already have an account? <a href="/login" className="text-primary text-decoration-none">Login</a>
-							</div>
-						</div>
-					</div>
-					<div class="text-center mt-5 ">
-                             <a href="https://github.com/saideepakreddy0308" className='text-decoration-none text-dark text-muted'> Copyright &copy; &mdash; Sai Deepak Reddy Kamaganikuntla</a>
+                        <Button type="submit" fullWidth size="large" className="mb-4" variant="contained" color="secondary" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "1.1rem" }}>Register now</Button>
+                    </form>
+                    <p>Have an account? <Link to="/login" >login</Link> </p>
+                </div>
+            </div>
+            <div class="text-center mt-5 ">
+                              <a href="https://github.com/saideepakreddy0308" className='text-decoration-none text-dark text-muted'> Copyright &copy; &mdash; Sai Deepak Reddy Kamaganikuntla</a>
                                 {/* Copyright &copy; 2017-2021 &mdash; Your Company */}
                             </div> 
-				</div>
-			</div>
-		</div>
-	</section>
+        </div>
     )
+
+    //     <section className="h-80" onSubmit={handleSubmit}>
+	// 	<div className="container h-80">
+	// 		<div className="row justify-content-sm-center h-100">
+	// 			<div className="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+	// 				<div className="text-center my-3">
+	// 					<img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="logo" width="70" />
+	// 				</div>
+	// 				<div className="card shadow-lg" >
+	// 					<div className="card-body p-5">
+	// 						<h1 className="fs-4 card-title fw-bold mb-4">Signup</h1>
+	// 						<form method="POST" className="needs-validation" novalidate="" autocomplete="off">
+    //                         <div className="mb-3">
+    //                                         <label htmlFor="name" className="text-muted">Name </label>
+    //                                         <input id="name" type="text" className="form-control" name="name" value={credentials.name} onChange={onChange} required autofocus />
+                                            
+    //                                     </div>
+    //                         <div className="mb-3">
+    //                                         <label htmlFor="email" className="text-muted">Email </label>
+    //                                         <input id="email" type="email" className="form-control" name="email" value={credentials.email} onChange={onChange} aria-describedby="emailHelp" required autofocus />
+    //                                         <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                                            
+    //                                     </div>
+
+    //                                     <div className="mb-3">
+    //                                         <div className="mb-2 w-100">
+    //                                             <label htmlFor="password" className="text-muted">Password</label>
+    //                                             <input type="password" className="form-control" value={credentials.password} onChange={onChange} name="password" id="password" required />
+    //                                             {/* <a href="forgot.html" className="float-end">
+    //                                                 Forgot Password?
+    //                                             </a> */}
+    //                                         </div>
+
+    //                                     </div>
+
+    //                                     <div className="mb-3">
+    //                                         <div className="mb-2 w-100">
+    //                                             <label htmlFor="cpassword" className="text-muted">Confirm Password</label>
+    //                                             <input type="password" className="form-control" value={credentials.cpassword} onChange={onChange} name="cpassword" id="cpassword" required />
+    //                                             {/* <a href="forgot.html" className="float-end">
+    //                                                 Forgot Password?
+    //                                             </a> */}
+    //                                         </div>
+                                            
+    //                                     </div>
+
+	// 							{/* <div className="d-flex align-items-center">
+	// 								<div className="form-check">
+	// 									<input type="checkbox" name="remember" id="remember" className="form-check-input" />
+	// 									<label for="remember" className="form-check-label">Remember Me</label>
+	// 								</div>
+	// 								<button type="submit" className="btn btn-primary ms-auto">
+	// 									Login
+	// 								</button>
+	// 							</div> */}
+    //                              <div class="my-3 w-100 align-items-center text-center">
+    //                                         {/* <div class="form-check">
+    //                                             <input type="checkbox" name="remember" id="remember" class="form-check-input" />
+    //                                             <label for="remember" class="form-check-label">Remember Me</label>
+    //                                         </div> */}
+    //                                         <button type="submit" className="btn btn-primary ms-auto">Submit
+    //                                         </button>
+    //                                     </div>
+	// 						</form>
+	// 					</div>
+	// 					<div className="card-footer py-2 border-0">
+	// 						<div className="text-center">
+	// 							Already have an account? <a href="/login" className="text-primary text-decoration-none">Login</a>
+	// 						</div>
+	// 					</div>
+	// 				</div>
+	// 				<div class="text-center mt-5 ">
+    //                          <a href="https://github.com/saideepakreddy0308" className='text-decoration-none text-dark text-muted'> Copyright &copy; &mdash; Sai Deepak Reddy Kamaganikuntla</a>
+    //                             {/* Copyright &copy; 2017-2021 &mdash; Your Company */}
+    //                         </div> 
+	// 			</div>
+	// 		</div>
+	// 	</div>
+	// </section>
+    // )
 }
 
 export default Signup
