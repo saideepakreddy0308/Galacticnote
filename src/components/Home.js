@@ -9,25 +9,35 @@
 //     )
 // }
 
-import React from 'react'
+import {Reac,useState} from 'react'
 import noteImg from '../inotebook.svg'
 import { Link } from "react-router-dom";
 import { Button } from '@mui/material';
 import "./home.css"
 import Notes from './Notes';
 import Navbar from "./Navbar";
-// import Alertss from "./Alertss";
+import Alert from "./Alert";
 
 function Home(props) {
     console.log('hii')
-    const {showAlert} = props
+    const [alert, setAlert] = useState(null);
 
+  const showAlert = (message, type)=>{
+    setAlert({
+      msg: message,
+      type: type
+    })
+    setTimeout(() => {
+        setAlert(null);
+    }, 1500);
+}
     return (
         <>
             <Navbar />
             {/* <Alertss /> */}
             {/* <Notes showAlert={showAlert}/> */}
             <div className="container-fluid" >
+            <Alert alert={alert}/>
                 <div className="row">
                     <div className="col-md-5">
                         <h1 className="display-1 pt-5 ps-5 respo"><span style={{ color: "#9C27B0" }}>W</span>elcome</h1>

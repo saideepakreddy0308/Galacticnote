@@ -21,6 +21,16 @@ import Alert from "./Alert";
 const Login = (props) => {
     const [credentials, setCredentials] = useState({ email: "", password: "" })
     let history = useHistory();
+    const [alert, setAlert] = useState(null);
+
+    const showAlert = (message, type)=>{
+      setAlert({
+        msg: message,
+        type: type
+      })
+      setTimeout(() => {
+          setAlert(null);
+      }, 1500);}
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -36,20 +46,24 @@ const Login = (props) => {
         if (json.success) {
             // Save the auth token and redirect
             localStorage.setItem('token', json.authtoken);
-            props.showAlert("Logged in Successfully", "success")
+            showAlert("Logged in Successfully", "success")
             history.push("/");
 
         }
         else {
-            props.showAlert("Invalid Credentials", "danger")
+            showAlert("Invalid Credentials", "danger")
         }
     }
 
     const onChange = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
     }
+    
 
     return (
+  <>
+        {/* <Alert alert={{alert}}/>  */}
+        <Alert alert={alert}/>
         <div className='mt-3 vh-100 '>
             {/* <h2>Login to continue to CloudNotes</h2>
             <form  onSubmit={handleSubmit}>
@@ -66,8 +80,7 @@ const Login = (props) => {
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form> */}
 
-            <section className="h-75 ">
-            <Alert /> 
+            <section className="h-75 " >
                 <div className="container h-100">
                     <div className="row justify-content-sm-center h-100">
                         {/* <div className="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9"> */}
@@ -88,10 +101,10 @@ const Login = (props) => {
                     <Button size="small" fullWidth className="mb-4" variant="contained" color="error" startIcon={<GoogleIcon />} component={Link} to="/login" style={{ textTransform: "none", fontSize: "1.1rem", color: "White", fontFamily: "'Poppins', sans-serif" }}>Login with Google</Button>
                 </div>
                 <p className="mb-4 d-flex justify-content-center">or login with username and password</p>
-                                    <form method="POST" className="needs-validation" novalidate="" autocomplete="off">
+                                    <form method="POST" className="needs-validation" noValidate="" autoComplete="off">
                                         <div className="mb-3">
                                             <label htmlFor="email" className="text-muted">Email </label>
-                                            <input id="email" type="email" className="form-control" name="email" value={credentials.email} onChange={onChange} aria-describedby="emailHelp" required autofocus />
+                                            <input id="email" type="email" className="form-control" name="email" value={credentials.email} onChange={onChange} aria-describedby="emailHelp" required autoFocus />
                                             {/* <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div> */}
                                             <div className="invalid-feedback">
                                                 Email is invalid
@@ -138,9 +151,10 @@ const Login = (props) => {
                 </div>
             </section>
         </div>
-
-
-    )
+        </>
+    )   
 }
+
+
 
 export default Login

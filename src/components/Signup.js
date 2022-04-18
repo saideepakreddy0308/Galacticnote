@@ -9,6 +9,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link, useNavigate } from "react-router-dom";
 // import avataars from "../images/avataaars.png"
 // import Alertss from "./Alertss";
+import Alert from "./Alert";
 // import { AlertContext } from '../context/AlertContext';
 // import { useFormik } from 'formik'
 // import * as Yup from 'yup';
@@ -16,6 +17,16 @@ import { Link, useNavigate } from "react-router-dom";
 const Signup = (props) => {
     const [credentials, setCredentials] = useState({name:"",email: "", password: "",cpassword: ""}) 
     let history = useHistory;
+    const [alert, setAlert] = useState(null);
+
+    const showAlert = (message, type)=>{
+      setAlert({
+        msg: message,
+        type: type
+      })
+      setTimeout(() => {
+          setAlert(null);
+      }, 1500);}
     const handleSubmit = async (e) => {
         e.preventDefault();
         const {name,email,password} = credentials;
@@ -31,11 +42,11 @@ const Signup = (props) => {
         if (json.success){
             // Save the auth token and redirect
             localStorage.setItem('token', json.authtoken);
+            showAlert("Account Created Successfully","success")
             history.push("/"); 
-            props.showAlert("Account Created Successfully","success")
         }
         else{
-            props.showAlert("Invalid Credentials","danger")
+            showAlert("Invalid Credentials","danger")
         }
     }
 
@@ -70,6 +81,8 @@ const Signup = (props) => {
 
 
         // <div className='container col-md-7 col-sm-9 mt-3'>
+        <>
+        <Alert alert={alert}/>
         <div className='container mt-3 vh-100 '>
             <div className="d-flex shadow-lg p-5">
                 <div className="col-md-5">
@@ -125,7 +138,9 @@ const Signup = (props) => {
                                 {/* Copyright &copy; 2017-2021 &mdash; Your Company */}
                             </div> 
         </div>
+        </>  
     )
+    
 
     //     <section className="h-80" onSubmit={handleSubmit}>
 	// 	<div className="container h-80">
@@ -205,6 +220,7 @@ const Signup = (props) => {
 	// 		</div>
 	// 	</div>
 	// </section>
+    
     // )
 }
 

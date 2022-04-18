@@ -61,7 +61,7 @@ const Notes = (props) => {
                                 </div>
                                 <div className="mb-3">
                                     <label inputProps={{minlength:3}} autoFocus required color="secondary" margin="dense" htmlFor="description" className="form-label text-muted">Description</label>
-                                    <input type="text" className="form-control" id="edescription" name="edescription" value={note.edescription} onChange={onChange} minLength={5} required/>
+                                    <textarea rows={1} type="text" className="form-control" id="edescription" name="edescription" value={note.edescription} onChange={onChange} minLength={5} required/>
                                 </div>
                                 <div className="mb-3">
                                     <label inputProps={{minlength:3}} autoFocus required color="secondary" margin="dense" htmlFor="tag" className="form-label text-muted">Tag</label>
