@@ -10,7 +10,7 @@ import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
 // import { Link, useNavigate, useLocation } from "react-router-dom";
 // // import "../styles/home.css"
-// import Alertss from "./Alertss";
+import Alert from "./Alert";
 // import { AlertContext } from '../context/AlertContext';
 // import { useFormik } from 'formik'
 // import * as Yup from 'yup';
@@ -50,7 +50,7 @@ const Login = (props) => {
     }
 
     return (
-        <div className='mt-3 vh-100'>
+        <div className='mt-3 vh-100 '>
             {/* <h2>Login to continue to CloudNotes</h2>
             <form  onSubmit={handleSubmit}>
                 <div className="mb-3">
@@ -66,7 +66,8 @@ const Login = (props) => {
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form> */}
 
-            <section className="h-75 " >
+            <section className="h-75 ">
+            <Alert /> 
                 <div className="container h-100">
                     <div className="row justify-content-sm-center h-100">
                         {/* <div className="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9"> */}
