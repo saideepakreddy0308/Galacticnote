@@ -37,7 +37,7 @@ const Notes = (props) => {
     }
 
     return (
-        <div className="container flex-column">
+        <div className="container flex-column h-100">
             <AddNote showAlert={props.showAlert}/>
             <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Launch demo modal
@@ -53,19 +53,19 @@ const Notes = (props) => {
                             <form>
                             <DialogContent style={{ paddingTop: "0.5rem" }}>
                         <DialogContentText style={{ fontFamily: "'Poppins', sans-serif", fontSize: "1rem", marginBottom: "0.5rem" }}>
-                            Edit your note. edit the field that you want to edit in note
+                            Edit the field that you want to update in the note.
                         </DialogContentText>
                                 <div className="mb-3">
                                     <label inputProps={{minlength:3}} autoFocus required color="secondary" margin="dense" htmlFor="title" className="form-label text-muted">Title</label>
-                                    <input type="text" className="form-control" id="etitle" name="etitle" value={note.etitle} aria-describedby="emailHelp" onChange={onChange} minLength={5} required/>
+                                    <input type="text" className="form-control" id="etitle" name="etitle" placeholder='Enter the title here' value={note.etitle} aria-describedby="emailHelp" onChange={onChange} minLength={5} required/>
                                 </div>
                                 <div className="mb-3">
                                     <label inputProps={{minlength:3}} autoFocus required color="secondary" margin="dense" htmlFor="description" className="form-label text-muted">Description</label>
-                                    <textarea rows={1} type="text" className="form-control" id="edescription" name="edescription" value={note.edescription} onChange={onChange} minLength={5} required/>
+                                    <textarea rows={1} type="text" className="form-control" placeholder='Enter the text here' id="edescription" name="edescription" value={note.edescription} onChange={onChange} minLength={5} required/>
                                 </div>
                                 <div className="mb-3">
                                     <label inputProps={{minlength:3}} autoFocus required color="secondary" margin="dense" htmlFor="tag" className="form-label text-muted">Tag</label>
-                                    <input type="text" className="form-control" id="etag" name="etag" value={note.etag} onChange={onChange} />
+                                    <input type="text" className="form-control" id="etag" name="etag" placeholder='e.g. personal' value={note.etag} onChange={onChange} />
                                 </div>
                                 </DialogContent>
                         <div className="modal-footer">
@@ -92,7 +92,6 @@ const Notes = (props) => {
                     return <Noteitem key={note._id} updateNote={updateNote} showAlert={props.showAlert} note={note} />
                 })}
             </div>
-            
         </div>
     )
 }

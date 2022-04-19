@@ -1,0 +1,43 @@
+ <Button className="mb-4" variant="text" color="secondary" startIcon={<ArrowBackIcon />} component={Link} to="/about" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif" }}>About</Button>
+                    <h2 style={{ fontWeight: "Bold" }}>Create a new account</h2>
+                    <p className="mb-3 sm-6"> We are excited to get you started.</p>
+                    <form autoComplete="off" noValidate onSubmit={handleSubmit}>
+                    <div className="mb-4 sm-6">
+                                            <label htmlFor="name" className="text-muted">Name </label>
+                                            <input id="name" type="text" className="form-control" name="name" placeholder='Enter your name' value={credentials.name} onChange={onChange} required autofocus />
+                                            
+                                        </div>
+                            <div className="mb-4 sm-6">
+                                            <label htmlFor="email" className="text-muted">Email </label>
+                                            <input id="email" type="email" className="form-control" placeholder='Enter your email address' name="email" value={credentials.email} onChange={onChange} aria-describedby="emailHelp" required autofocus />
+                                            <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                                            
+                                        </div>
+
+                                        <div className="mb-2 sm-4">
+                                            <div className="mb-2 sm-6 w-100">
+                                                <label htmlFor="password" className="text-muted">Password</label>
+                                                <input type="password" className="form-control" placeholder='Password must contain 5+ characters' value={credentials.password} onChange={onChange} name="password" id="password" required />
+                                                {/* <a href="forgot.html" className="float-end">
+                                                    Forgot Password?
+                                                </a> */}
+                                            </div>
+
+                                        </div>
+
+                                        <div className="mb-2 sm-8">
+                                            <div className="mb-2 sm-4 w-100">
+                                                <label htmlFor="cpassword" className="text-muted">Confirm Password</label>
+                                                <input type="password" className="form-control" value={credentials.cpassword} onChange={onChange} placeholder='Retype password to confirm' name="cpassword" id="cpassword" required />
+                                                {/* <a href="forgot.html" className="float-end">
+                                                    Forgot Password?
+                                                </a> */}
+                                            </div>
+                                            
+                                        </div>
+
+                        <Button type="submit" fullWidth size="large" className="mb-4 sm-6" variant="contained" color="secondary" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "1.1rem" }}>Register now</Button>
+                    </form>
+                    <p>Have an account? <Link to="/login" >login</Link> </p>
+                </div>
+            </div>
