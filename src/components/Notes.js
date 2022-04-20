@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState, useHistory } from 'reac
 import noteContext from "../context/notes/noteContext"
 import Noteitem from './Noteitem';
 import AddNote from './AddNote';
+// import './fade.css'
 import { Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from '@mui/material';
 
 const Notes = (props) => {
@@ -38,21 +39,21 @@ const Notes = (props) => {
 
     return (
         <div className="container flex-column h-100" >
-            <AddNote showAlert={props.showAlert}/>
+            {/* <AddNote showAlert={props.showAlert}/> */}
             <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Launch demo modal
             </button>
-            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog">
+            <div className="modal " style={{opacity: "0.93"}} id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog ">
                     <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Edit Note</h5>
+                        <div className="modal-header py-1">
+                            <h5 className="modal-title " id="exampleModalLabel">Edit Note</h5>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            <form>
-                            <DialogContent style={{ paddingTop: "0.5rem" }}>
-                        <DialogContentText style={{ fontFamily: "'Poppins', sans-serif", fontSize: "1rem", marginBottom: "0.5rem" }}>
+                            <form py-1>
+                            <DialogContent style={{ paddingTop: "0.3rem" }}>
+                        <DialogContentText style={{ fontFamily: "'Poppins', sans-serif", fontSize: "1rem", marginBottom: "0.2rem" }}>
                             Edit the field that you want to update in the note.
                         </DialogContentText>
                                 <div className="mb-3">
@@ -68,7 +69,7 @@ const Notes = (props) => {
                                     <input type="text" className="form-control" id="etag" name="etag" placeholder='e.g. personal' value={note.etag} onChange={onChange} />
                                 </div>
                                 </DialogContent>
-                        <div className="modal-footer">
+                        <div className="modal-footer py-1">
                         <DialogActions>
                         {/* <Button variant="outlined" color="secondary" onClick={handleClose} style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "1rem" }}>Cancel</Button>
                         <Button disabled={title.length < 3 || description.length < 3 || tag.length < 3 } variant="contained" color="secondary" type="submit" onClick={handleClose} style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "1rem" }}>Edit {note.title}</Button>

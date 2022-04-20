@@ -114,9 +114,9 @@ const Login = (props) => {
                                                 <div className="mb-2 w-100">
                                                     <label htmlFor="password" className="text-muted">Password</label>
                                                     <input type="password" className="form-control" value={credentials.password} onChange={onChange} name="password" id="password" required />
-                                                    {/* <a href="forgot.html" className="float-end">
+                                                    <Link to="/login" className="float-end">
                                                     Forgot Password?
-                                                </a> */}
+                                                </Link>
                                                 </div>
                                                 <div className="invalid-feedback">
                                                     Password is required
@@ -124,12 +124,12 @@ const Login = (props) => {
                                             </div>
 
                                             {/* <div className="d-flex align-items-center text-center"> */}
-                                            <div className="mt-3 w-100 align-items-center text-center">
-                                                {/* <div className="form-check">
+                                            <div className="mt-3 w-100 align-items-center ">
+                                                <div className="form-check">
                                                 <input type="checkbox" name="remember" id="remember" className="form-check-input" />
                                                 <label for="remember" className="form-check-label">Remember Me</label>
-                                            </div> */}
-                                                <button type="submit" className="btn btn-primary ms-auto">Login
+                                            </div>
+                                                <button type="submit" className="btn btn-primary ms-auto mt-1">Login
                                                 </button>
                                             </div>
                                         </form>

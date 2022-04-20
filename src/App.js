@@ -12,6 +12,7 @@ import Alert  from './components/Alert';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Setting from './components/Setting';
+import AddNote from './components/AddNote';
 import { useState } from 'react';
 function App() {
   const [alert, setAlert] = useState(null);
@@ -44,6 +45,9 @@ function App() {
               <Route exact path="/signup">
                 <Signup showAlert={showAlert}/>
               </Route>
+              <Route exact path="/addnote">
+            <AddNote showAlert={showAlert}/>
+          </Route>
               <Route exact path="/setting">
             <Setting/>
           </Route>

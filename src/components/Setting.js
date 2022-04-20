@@ -56,7 +56,7 @@ const Setting = () => {
             <Navbar />
             {/* <div className="justify-content-sm-center ">
         <div className="bg-light"> */}
-            <div className="bg-light ">
+            <div className="bg-light" style={{backgroundColor:"#EEEEEE"}} >
                 <button ref={refDelete} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Launch demo modal
                 </button>
@@ -78,7 +78,7 @@ const Setting = () => {
                     </div>
                 </div>
             </div>
-            <div className='justify-content-sm-center mx-auto mt-5 p-5 col-sm-9 card shadow-lg bg-light col-md-7 col-md-offset-4'>
+            <div className='justify-content-sm-center mx-auto mt-5 p-5 col-sm-9 card shadow-lg col-md-7 col-md-offset-4' style={{backgroundColor:"#EEEEEE"}}  >
                 <form>
                     <h5 className="fs-1 mb-2"><span><img className="img-circle img-responsive" src="https://img.icons8.com/cotton/64/000000/cloud-user.png" /></span>Profile</h5>
                     <div className="form-group row">

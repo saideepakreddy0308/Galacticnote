@@ -1,5 +1,6 @@
 import React, {useContext, useState} from 'react'
 import noteContext from "../context/notes/noteContext"
+import Navbar from './Navbar';
 
 const AddNote = (props) => {
     const context = useContext(noteContext);
@@ -18,14 +19,17 @@ const AddNote = (props) => {
         setNote({...note, [e.target.name]: e.target.value})
     }
     return (
-        <div className="container my-2 vh-100 ">
-            <div class="card shadow-md ">
+        <>
+        <Navbar />
+        <div className="container my-2 " style={{width:"50%", height:"50%"}}>
+            <div class="card shadow-lg ">
             <div class="card-body p-4" style={{
 
         backgroundColor: "#EEEEEE"
             
             }}>
-            <h2>New Note</h2>
+            <h3 style={{ color: "black" }}>Create new Note</h3>
+            <p className="mb-4">Leave nothing behind.</p>
             <form className="my-3">
                 <div className="mb-3">
                     <label htmlFor="title" className="form-label">Title</label>
@@ -33,7 +37,7 @@ const AddNote = (props) => {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="description" className="form-label">Description</label>
-                    <textarea type="text" rows={4} className="form-control" id="description" placeholder='Enter the text here' name="description" value={note.description} onChange={onChange} minLength={5} required />
+                    <textarea type="text" rows={2} className="form-control" id="description" placeholder='Enter the text here' name="description" value={note.description} onChange={onChange} minLength={5} required />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="tag" className="form-label">Tag</label>
@@ -46,6 +50,7 @@ const AddNote = (props) => {
             </div>
             </div>
         </div>
+        </>
     )
 }
 

@@ -11,7 +11,7 @@ const Navbar = () => {
     }
     let location = useLocation();
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar  navbar-fixed-top navbar-default navbar-expand-lg navbar-dark bg-dark py-0">
             <div className="container-fluid">
                 <div className="text-center">
                 <Link className="navbar-brand" to="/"><img src="https://img.icons8.com/emoji/48/000000/flying-saucer.png" alt="Galacticnot-logo" width="50" /></Link>
