@@ -10,10 +10,10 @@
 // }
 
 import {React,useState} from 'react'
-import noteImg from '../inotebook.svg'
+import noteImg from '../images/inotebook.svg'
 import { Link } from "react-router-dom";
 import { Button } from '@mui/material';
-import "./home.css"
+
 import Notes from './Notes';
 import Navbar from "./Navbar";
 import Alert from "./Alert";

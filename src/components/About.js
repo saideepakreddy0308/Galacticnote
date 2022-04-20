@@ -1,12 +1,12 @@
 import React from 'react'
 import Navbar from "./Navbar";
 import '../styles/about.css';
-import nbd from '../nbd.png'
-import note3 from '../note3.png'
-import awesome from '../about - awesome.jpeg'
-import login from '../about - awesome.svg'
+// import nbd from '../images/nbd.png'
+import note3 from '../images/note3.png'
+// import awesome from './images/about - awesome.jpeg'
+import login from '../images/about - awesome.svg'
 import { Link } from "react-router-dom";
-import { Button } from '@mui/material';
+// import { Button } from '@mui/material';
 // import Alertss from "./Alertss";
 
 function About() {

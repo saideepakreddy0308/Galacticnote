@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Footer from './Footer'
-import './Login.css'
+
 import { Link, useNavigate, useLocation } from "react-router-dom";
 // import React, { useContext, useState } from 'react'
 import { TextField, Button, InputAdornment, InputLabel, OutlinedInput, FormControl, IconButton, FormHelperText } from '@mui/material';
@@ -14,14 +14,15 @@ import Alert from "./Alert";
 // import { AlertContext } from '../context/AlertContext';
 // import { useFormik } from 'formik'
 // import * as Yup from 'yup';
-// import Visibility from '@mui/icons-material/Visibility';
-// import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 
 const Login = (props) => {
     const [credentials, setCredentials] = useState({ email: "", password: "" })
     let history = useHistory();
     const [alert, setAlert] = useState(null);
+    const [showPassword, setShowPassword] = useState(false)
 
     const showAlert = (message, type) => {
         setAlert({
@@ -32,6 +33,14 @@ const Login = (props) => {
             setAlert(null);
         }, 1500);
     }
+
+    const handleClickShowPassword = () => {
+        setShowPassword(!showPassword)
+    };
+
+    const handleMouseDownPassword = (event) => {
+        event.preventDefault();
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -66,7 +75,7 @@ const Login = (props) => {
             {/* <Alert alert={{alert}}/>  */}
             <Alert alert={alert} />
             {/* <div className=' vh-75 my-5 '> */}
-                {/* <h2>Login to continue to CloudNotes</h2>
+            {/* <h2>Login to continue to CloudNotes</h2>
             <form  onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email address</label>
@@ -81,73 +90,95 @@ const Login = (props) => {
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form> */}
 
-                <section className="vh-100 my-3  " >
-                    <div className="container h-100">
-                        <div className="row justify-content-sm-center h-100 container">
-                            {/* <div className="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9"> */}
-                            <div className=" col-md-7 col-sm-9">
-                                {/* <div className="container mt-5 addnotes" > */}
+            <section className="vh-100 my-3  " >
+                <div className="container h-100">
+                    <div className="row justify-content-sm-center h-100 container">
+                        {/* <div className="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9"> */}
+                        <div className=" col-md-7 col-sm-9">
+                            {/* <div className="container mt-5 addnotes" > */}
 
-                                
-                                <div className="card shadow-lg" onSubmit={handleSubmit}>
-                                    <div className="card-body p-5">
-                                        {/* <h1 className="fs-4 card-title fw-bold mb-4">Login</h1> */}
-                                        <Button className="mb-2" variant="text" color="secondary" startIcon={<ArrowBackIcon />} component={Link} to="/about" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif" }}>About</Button>
-                                        <h2 style={{ fontWeight: "Bold" }}>Login</h2>
-                                        <p className="mb-3">Sign in on the internal platform</p>
-                                        <div className="d-flex">
-                                            <Button size="small" fullWidth className="mb-3 me-4" variant="contained" color="primary" startIcon={<FacebookIcon />} component={Link} to="/login" style={{ textTransform: "none", fontSize: "1.1rem", color: "White", fontFamily: "'Poppins', sans-serif" }}>Login with Facebook</Button>
-                                            <Button size="small" fullWidth className="mb-3" variant="contained" color="error" startIcon={<GoogleIcon />} component={Link} to="/login" style={{ textTransform: "none", fontSize: "1.1rem", color: "White", fontFamily: "'Poppins', sans-serif" }}>Login with Google</Button>
-                                        </div>
-                                        <p className="mb-2 d-flex justify-content-center">or enter your credentials.</p>
-                                        <form method="POST" className="needs-validation" noValidate="" autoComplete="off">
-                                            <div className="mb-3">
-                                                <label htmlFor="email" className="text-muted">Email </label>
-                                                <input id="email" type="email" placeholder='name@company.com' className="form-control" name="email" value={credentials.email} onChange={onChange} aria-describedby="emailHelp" required autoFocus />
-                                                {/* <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div> */}
-                                                <div className="invalid-feedback">
-                                                    Email is invalid
-                                                </div>
+
+                            <div className="card shadow-lg" onSubmit={handleSubmit}>
+                                <div className="card-body p-5">
+                                    {/* <h1 className="fs-4 card-title fw-bold mb-4">Login</h1> */}
+                                    <Button className="mb-2" variant="text" color="secondary" startIcon={<ArrowBackIcon />} component={Link} to="/about" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif" }}>About</Button>
+                                    <h2 style={{ fontWeight: "Bold" }}>Login</h2>
+                                    <p className="mb-3">Sign in on the internal platform</p>
+                                    <div className="d-flex">
+                                        <Button size="small" fullWidth className="mb-3 me-4" variant="contained" color="primary" startIcon={<FacebookIcon />} component={Link} to="/login" style={{ textTransform: "none", fontSize: "1.1rem", color: "White", fontFamily: "'Poppins', sans-serif" }}>Login with Facebook</Button>
+                                        <Button size="small" fullWidth className="mb-3" variant="contained" color="error" startIcon={<GoogleIcon />} component={Link} to="/login" style={{ textTransform: "none", fontSize: "1.1rem", color: "White", fontFamily: "'Poppins', sans-serif" }}>Login with Google</Button>
+                                    </div>
+                                    <p className="mb-2 d-flex justify-content-center">or enter your credentials.</p>
+                                    <form method="POST" className="needs-validation" noValidate="" autoComplete="off">
+                                        <div className="mb-3">
+                                            <label htmlFor="email" className="text-muted">Email </label>
+                                            <input id="email" type="email" placeholder='name@company.com' className="form-control" name="email" value={credentials.email} onChange={onChange} aria-describedby="emailHelp" required autoFocus />
+                                            {/* <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div> */}
+                                            <div className="invalid-feedback">
+                                                Email is invalid
                                             </div>
+                                        </div>
 
-                                            <div className="mb-3">
-                                                <div className="mb-2 w-100">
-                                                    <label htmlFor="password" className="text-muted">Password</label>
-                                                    <input type="password" className="form-control" value={credentials.password} onChange={onChange} name="password" id="password" required />
-                                                    <Link to="/login" className="float-end">
+                                        <div className="mb-3">
+                                            <div className=" mb-2 w-100">
+                                                <div className='flex col-xs-4'>
+                                                <label htmlFor="password" className="text-muted">Password</label>
+                                                
+                                                </div>
+                                                <div className="input-group w-100" id="show_hide_password">
+                                                <input type={showPassword ? 'text' : 'password'} className="form-control" value={credentials.password} onChange={onChange} name="password" id="password" required
+                                                    label="Password" />
+      <div className="border-start-0 border-dark input-group-addon">
+      {/* <i class="fa fa-eye-slash" aria-hidden="true"></i> */}
+        <Button className="border-start-0 text-dark "
+                                                        // aria-label="toggle password visibility"
+                                                        onClick={handleClickShowPassword}
+                                                        onMouseDown={handleMouseDownPassword}
+                                                        // autoFocus
+                                                        type="button"
+                                                        style={{backgroundColor:"#EEEEEE",  opacity:"0.9"}}
+                                                        >
+                                                            
+                                                    {/* {showPassword ? <VisibilityOff /> : <Visibility />} */}
+                                                    {showPassword ? "Hide":"Show" }
+                                                </Button>
+      </div>
+    </div>
+                                                <Link to="/login" className="float-end">
                                                     Forgot Password?
                                                 </Link>
-                                                </div>
-                                                <div className="invalid-feedback">
-                                                    Password is required
-                                                </div>
+                                                
                                             </div>
-
-                                            {/* <div className="d-flex align-items-center text-center"> */}
-                                            <div className="mt-3 w-100 align-items-center ">
-                                                <div className="form-check">
-                                                <input type="checkbox" name="remember" id="remember" className="form-check-input" />
-                                                <label for="remember" className="form-check-label">Remember Me</label>
+                                            <div className="invalid-feedback">
+                                                Password is required
                                             </div>
-                                                <button type="submit" className="btn btn-primary ms-auto mt-1">Login
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div className="card-footer py-2 border-0 ">
-                                        <div className="text-center">
-                                            Don't have an account? <a href="/signup" className="text-primary">Create One</a>
                                         </div>
+
+                                        {/* <div className="d-flex align-items-center text-center"> */}
+                                        <div className="mt-3 w-100 align-items-center ">
+                                            <div className="form-check">
+                                                <input type="checkbox" name="remember" id="remember" className="form-check-input" />
+                                                <label htmlFor="remember" className="form-check-label">Remember Me</label>
+                                            </div>
+                                            <button type="submit" className="btn btn-primary ms-auto mt-1">Login
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div className="card-footer py-2 border-0 ">
+                                    <div className="text-center">
+                                        Don't have an account? <a href="/signup" className="text-primary">Create One</a>
                                     </div>
                                 </div>
-
-                                {/* <Footer /> */}
                             </div>
+
+                            {/* <Footer /> */}
                         </div>
                     </div>
-                </section>
+                </div>
+            </section>
             {/* </div> */}
-             {/* /// <div className="text-center mt-5 vh-25 ">
+            {/* /// <div className="text-center mt-5 vh-25 ">
                 <a href="https://github.com/saideepakreddy0308" className='text-decoration-none text-dark'> Copyright &copy; &mdash; Sai Deepak Reddy Kamaganikuntla</a>
                 Copyright &copy; 2017-2021 &mdash; Your Company
             </div>  */}

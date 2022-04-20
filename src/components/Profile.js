@@ -1,9 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import Navbar from './Navbar';
-import './profile.css'
 
-const Setting = () => {
+const Profile = () => {
     let [username, setUsername] = useState("Loading...");
     let [email, setEmail] = useState("Loading...");
     const host = "http://localhost:5000"
@@ -56,7 +55,7 @@ const Setting = () => {
             <Navbar />
             {/* <div className="justify-content-sm-center ">
         <div className="bg-light"> */}
-            <div className="bg-light" style={{backgroundColor:"#EEEEEE"}} >
+            <div className="bg-light" style={{backgroundColor:"#85F4FF"}} >
                 <button ref={refDelete} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Launch demo modal
                 </button>
@@ -96,7 +95,7 @@ const Setting = () => {
                 </form>
                 <div className="my-3">
                     <h2 className="" style={{color:"#34495e"}}>Delete Account</h2>
-                    <small>Once you delete your account, there's no way to recover this.Please be certain</small><br />
+                    <small>Please be certain, once you delete your account there's no way to recover this.</small><br />
                     <button onClick={deleteClick} type="button" className="btn my-2 btn-outline-info" style={{color:"#34495e"}}>Delete Account</button>
                 </div>
             </div>
@@ -118,4 +117,4 @@ const Setting = () => {
         </>)
 }
 
-export default Setting
+export default Profile

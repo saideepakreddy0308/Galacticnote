@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import avataars from '../avataaars.png'
+// import avataars from '../images/avataaars.png'
 // import React, { useContext, useState } from 'react'
 import { TextField, Button, InputAdornment, InputLabel, OutlinedInput, FormControl, IconButton, FormHelperText } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';

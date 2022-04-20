@@ -11,7 +11,7 @@ import NoteState from './context/notes/NoteState';
 import Alert  from './components/Alert';
 import Signup from './components/Signup';
 import Login from './components/Login';
-import Setting from './components/Setting';
+import Profile from './components/Profile';
 import AddNote from './components/AddNote';
 import { useState } from 'react';
 function App() {
@@ -48,8 +48,8 @@ function App() {
               <Route exact path="/addnote">
             <AddNote showAlert={showAlert}/>
           </Route>
-              <Route exact path="/setting">
-            <Setting/>
+              <Route exact path="/profile">
+            <Profile/>
           </Route>
             </Switch>
           {/* </div> */}
