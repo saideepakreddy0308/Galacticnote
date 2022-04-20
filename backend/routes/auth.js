@@ -11,7 +11,7 @@ const JWT_SECRET = '$aiDeep@kReddy#';
 router.post('/createuser', [
     body('name', 'Enter a valid name').isLength({ min: 3 }),
     body('email', 'Enter a valid email').isEmail(),
-    body('password', 'Password must be atleast 5 characters').isLength({ min: 5 }),
+    body('password', 'Password must be atleast 6 characters').isLength({ min: 6 }),
 ], async (req, res) => {
    let success = false;
     // If there are errors, return Bad request and the errors

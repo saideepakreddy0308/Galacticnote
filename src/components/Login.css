@@ -1,5 +1,6 @@
 body {
-    background-image: url('../triangles.png');
+    background-color: #71ba51;
+    /* background-image: linear-gradient(to bottom,#71ba51 0,#00b16a 100%); */
 }
 
 /* .card {

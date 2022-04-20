@@ -18,9 +18,13 @@ const AddNote = (props) => {
         setNote({...note, [e.target.name]: e.target.value})
     }
     return (
-        <div className="container my-2 ">
-            <div class="card ">
-            <div class="card-body p-4">
+        <div className="container my-2 vh-100 ">
+            <div class="card shadow-md ">
+            <div class="card-body p-4" style={{
+
+        backgroundColor: "#EEEEEE"
+            
+            }}>
             <h2>New Note</h2>
             <form className="my-3">
                 <div className="mb-3">
@@ -29,11 +33,11 @@ const AddNote = (props) => {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="description" className="form-label">Description</label>
-                    <textarea type="text" rows={3} className="form-control" id="description" placeholder='Enter the text here' name="description" value={note.description} onChange={onChange} minLength={5} required />
+                    <textarea type="text" rows={4} className="form-control" id="description" placeholder='Enter the text here' name="description" value={note.description} onChange={onChange} minLength={5} required />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="tag" className="form-label">Tag</label>
-                    <input type="text" className="form-control" id="tag" name="tag" value={note.tag} placeholder='e.g. personal' onChange={onChange} minLength={5} required />
+                    <input type="text" className="form-control" id="tag" name="tag" value={note.tag} placeholder='e.g. personal, 03 Aug 2021' onChange={onChange} minLength={5} required />
                 </div>
                 
                

@@ -58,6 +58,9 @@ function Home(props) {
                 {/* <Notes /> */}
                 
                 <Notes showAlert={showAlert}/>
+                {/* <div className="text-center mt-1">
+                <a href="https://github.com/saideepakreddy0308" className='text-decoration-none text-dark'> Sai Deepak Reddy Kamaganikuntla :)</a>
+            </div> */}
             </div>
             </div>
         </>

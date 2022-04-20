@@ -21,6 +21,9 @@ const Noteitem = (props) => {
                         <p className="card-text w-75">{note.description}</p>
                         <span className="badge bg-info col-auto h-25">{note.tag}</span>
                     </div>
+                    {/* <div className="card-footer  text-right mb-0" style={{width:"100%"}}>
+      <small className="text-muted">{note.date}</small>
+    </div> */}
                 </div>
             </div>
         </div>

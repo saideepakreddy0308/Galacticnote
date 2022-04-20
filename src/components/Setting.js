@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import Navbar from './Navbar';
+import './profile.css'
 
 const Setting = () => {
     let [username, setUsername] = useState("Loading...");
@@ -79,7 +80,7 @@ const Setting = () => {
             </div>
             <div className='justify-content-sm-center mx-auto mt-5 p-5 col-sm-9 card shadow-lg bg-light col-md-7 col-md-offset-4'>
                 <form>
-                    <h4 className="fs-1 mb-2">Profile</h4>
+                    <h5 className="fs-1 mb-2"><span><img className="img-circle img-responsive" src="https://img.icons8.com/cotton/64/000000/cloud-user.png" /></span>Profile</h5>
                     <div className="form-group row">
                         <label for="name" className="col-sm-2 col-form-label">Username</label>
                         <div className="col-sm-10">
@@ -94,9 +95,9 @@ const Setting = () => {
                     </div>
                 </form>
                 <div className="my-3">
-                    <h2 className="text-warning">Delete Account</h2>
+                    <h2 className="" style={{color:"#34495e"}}>Delete Account</h2>
                     <small>Once you delete your account, there's no way to recover this.Please be certain</small><br />
-                    <button onClick={deleteClick} type="button" className="btn my-2 btn-outline-warning">Delete Account</button>
+                    <button onClick={deleteClick} type="button" className="btn my-2 btn-outline-info" style={{color:"#34495e"}}>Delete Account</button>
                 </div>
             </div>
             {/* <div>

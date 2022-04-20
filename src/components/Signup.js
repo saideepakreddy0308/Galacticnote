@@ -43,8 +43,8 @@ const Signup = (props) => {
         if (json.success) {
             // Save the auth token and redirect
             localStorage.setItem('token', json.authtoken);
+            history.push('/');
             showAlert("Account Created Successfully", "success")
-            history.push("/");
         }
         else {
             showAlert("Invalid Credentials", "danger")
@@ -96,7 +96,7 @@ const Signup = (props) => {
                             <form autoComplete="off" noValidate onSubmit={handleSubmit}>
                                 <div className="mb-2 sm-6">
                                     <label htmlFor="name" className="text-muted">Name </label>
-                                    <input id="name" type="text" className="form-control" name="name" placeholder='Enter your name' value={credentials.name} onChange={onChange} required autofocus />
+                                    <input id="name" type="text" className="form-control" name="name" placeholder='Enter your name' value={credentials.name} onChange={onChange} required autoFocus />
 
                                 </div>
                                 <div className="mb-2 sm-6">

@@ -88,9 +88,7 @@ const Login = (props) => {
                             <div className=" col-md-7 col-sm-9">
                                 {/* <div className="container mt-5 addnotes" > */}
 
-                                {/* <div className="text-center my-3">
-                                <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="logo" width="70" />
-                            </div> */}
+                                
                                 <div className="card shadow-lg" onSubmit={handleSubmit}>
                                     <div className="card-body p-5">
                                         {/* <h1 className="fs-4 card-title fw-bold mb-4">Login</h1> */}
