@@ -17,3 +17,6 @@ app.use('/api/notes', require('./routes/notes'))
 app.listen(port, () => {
   console.log(`cloudnotes-backend listening at http://localhost:${port}`)
 })
+app.get("/",(req, res)=>{
+  res.send('hello deepak')
+})
