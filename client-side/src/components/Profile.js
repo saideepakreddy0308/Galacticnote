@@ -8,7 +8,7 @@ const Profile = () => {
     let [username, setUsername] = useState("Loading...");
     let [email, setEmail] = useState("Loading...");
     const [alert, setAlert] = useState(null);
-    const host = "http://localhost:5000"
+    const host = ""
     const refDelete = useRef(null);
     const context = useContext(NoteContext)
     const { deleteallnote } = context

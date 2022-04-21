@@ -24,7 +24,7 @@ const Signup = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const { name, email, password } = credentials;
-        const response = await fetch("http://localhost:5000/api/auth/createuser", {
+        const response = await fetch(`${host}/api/auth/createuser`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -70,7 +70,7 @@ const Signup = (props) => {
                                         <div className="mb-2 sm-4">
                                             <div className="mb-2 sm-6 w-100">
                                                 <label htmlFor="password" className="text-muted">Password</label>
-                                                <input type="password" className="form-control" placeholder='Password must contain 5+ characters' value={credentials.password} onChange={onChange} name="password" id="password" required />
+                                                <input type="password" className="form-control" placeholder='Password must contain atleast 6 characters' value={credentials.password} onChange={onChange} name="password" id="password" required />
                                             </div>
                                         </div>
                                         <div className="mb-2 sm-8">

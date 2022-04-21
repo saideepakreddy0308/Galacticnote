@@ -7,6 +7,7 @@ import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import Alert from "./Alert";
 const Login = (props) => {
+    const host = ''
     const [credentials, setCredentials] = useState({ email: "", password: "" })
     let history = useHistory();
     const [alert, setAlert] = useState(null);
@@ -31,7 +32,7 @@ const Login = (props) => {
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch("http://localhost:5000/api/auth/login", {
+        const response = await fetch(`${host}/api/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
