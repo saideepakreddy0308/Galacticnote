@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import img2 from "../images/img2.jpg";
 // import { Button } from '@mui/material';
 // import Alertss from "./Alertss";
+import github, { GitHub } from '@mui/icons-material'
 
 function About() {
     return (<>
@@ -25,7 +26,7 @@ function About() {
 
             <div className="container mt-5 ">
                 <div className="row">
-                    <div className="col-md-6 d-flex flex-column justify-content-center">
+                    <div className="col-md-6 d-flex flex-column justify-content-center"> 
                         <h2 className="mb-3" style={{ fontWeight: "Bold" }}>Powering the <span style={{ color: "#9C27B0" }}>Internet’s visuals</span> </h2>
                         <p>We made it to remember everything and tackle any project with your notes and schedule all in one place.</p>
                         <h2 className="mb-3" style={{ fontWeight: "Bold" }}>Make something <span style={{ color: "#9C27B0" }}>Awesome</span> </h2>
@@ -113,6 +114,7 @@ function About() {
                 <div className="bottom-details">
                     <div className="bottom_text">
                         <span className="copyright_text">Copyright © 2021 <Link to="/">Galacticnote</Link>All rights reserved</span>
+                        
                         <span className="policy_terms">
                             <Link to="/">Privacy policy</Link>
                             <Link to="/">Terms & condition</Link>

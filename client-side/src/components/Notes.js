@@ -57,7 +57,7 @@ const Notes = (props) => {
                             Edit the field that you want to update in the note.
                         </DialogContentText>
                                 <div className="mb-3">
-                                    <label inputProps={{minlength:3}} autoFocus required color="secondary" margin="dense" htmlFor="title" className="form-label text-muted">Title</label>
+                                    <label inputProps={{minlength:3}} autoFocus required color="secondary" margin="dense" htmlFor="title" className="form-label text-muted" autoComplete="off">Title</label>
                                     <input type="text" className="form-control" id="etitle" name="etitle" placeholder='Enter the title here' value={note.etitle} aria-describedby="emailHelp" onChange={onChange} minLength={5} required/>
                                 </div>
                                 <div className="mb-3">
@@ -75,7 +75,7 @@ const Notes = (props) => {
                         <Button disabled={title.length < 3 || description.length < 3 || tag.length < 3 } variant="contained" color="secondary" type="submit" onClick={handleClose} style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "1rem" }}>Edit {note.title}</Button>
                      */}
                             <button ref={refClose} type="button" className="btn btn-secondary sm" data-bs-dismiss="modal" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "1rem" }}>Cancel</button>
-                            <button disabled={note.etitle.length<3 || note.edescription.length<3} onClick={handleClick} type="button" className="btn btn-primary sm" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "1rem" }}>Update {note.etitle}</button>
+                            <button disabled={note.etitle.length<3 || note.edescription.length<3} onClick={handleClick} type="button" className="btn btn-primary sm" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "1rem" }}>Update Note</button>
                             </DialogActions>
                         </div>
                             </form>

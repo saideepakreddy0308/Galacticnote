@@ -81,15 +81,15 @@ const Profile = () => {
                 <form>
                     <h5 className="fs-1 mb-2"><span><img className="img-circle img-responsive" src="https://img.icons8.com/cotton/64/000000/cloud-user.png" /></span>Profile</h5>
                     <div className="form-group row">
-                        <label for="name" className="col-sm-2 col-form-label">Username</label>
+                        <label for="name" className="col-sm-2 col-form-label" style={{fontWeight:"bold"}}>Username</label>
                         <div className="col-sm-10">
-                            <input type="text" readonly className="form-control-plaintext" id="name" value={username} />
+                            <input type="text" readonly className="form-control-plaintext" style={{fontWeight:500}}  id="name" value={username} />
                         </div>
                     </div>
                     <div className="form-group row ">
-                        <label for="staticEmail" className="col-sm-2 col-form-label">Email</label>
+                        <label for="staticEmail" className="col-sm-2 col-form-label" style={{fontWeight:"bold"}}>Email</label>
                         <div className="col-sm-10">
-                            <input type="email" readonly className="form-control-plaintext" id="staticEmail" value={email} />
+                            <input type="email" readonly className="form-control-plaintext" style={{fontWeight:500}} id="staticEmail" value={email} />
                         </div>
                     </div>
                 </form>

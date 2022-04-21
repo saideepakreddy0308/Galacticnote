@@ -167,7 +167,7 @@ const Login = (props) => {
                                 </div>
                                 <div className="card-footer py-2 border-0 ">
                                     <div className="text-center">
-                                        Don't have an account? <a href="/signup" className="text-primary">Create One</a>
+                                    <p>Don't have an account? <a href="/signup" className="text-primary">Create One</a></p>
                                     </div>
                                 </div>
                             </div>

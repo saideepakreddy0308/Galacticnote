@@ -132,7 +132,7 @@ const Signup = (props) => {
                             </form>
                             <div className="card-footer border-0">
                                         <div className="text-center">
-                                        Have an account? <Link to="/login" className="text-primary">Login</Link>
+                                        <p>Have an account? <Link to="/login" className="text-primary">Login</Link></p>
                                         </div>
                                     </div>
                             {/* <p>Have an account? <Link to="/login" >login</Link> </p> */}
