@@ -1,27 +1,13 @@
-// import Notes from './Notes';
-
-// export const Home = (props) => {
-// const {showAlert} = props
-//     return (
-//         <div> 
-//             <Notes showAlert={showAlert}/>
-//         </div>
-//     )
-// }
-
 import {React,useState} from 'react'
 import noteImg from '../images/inotebook.svg'
 import { Link } from "react-router-dom";
 import { Button } from '@mui/material';
-
 import Notes from './Notes';
 import Navbar from "./Navbar";
 import Alert from "./Alert";
-
 function Home(props) {
     console.log('hii')
     const [alert, setAlert] = useState(null);
-
   const showAlert = (message, type)=>{
     setAlert({
       msg: message,
@@ -34,8 +20,6 @@ function Home(props) {
     return (
         <>
             <Navbar />
-            {/* <Alertss /> */}
-            {/* <Notes showAlert={showAlert}/> */}
             <div className="container-fluid bg-light" >
             <Alert alert={alert}/>
             <div>
@@ -53,18 +37,10 @@ function Home(props) {
                         <img className="img-fluid" style={{width: "75%"}} src={noteImg} alt="iNotebook" />
                     </div>
                     </div>
-                
-
-                {/* <Notes /> */}
-                
                 <Notes showAlert={showAlert}/>
-                {/* <div className="text-center mt-1">
-                <a href="https://github.com/saideepakreddy0308" className='text-decoration-none text-dark'> Sai Deepak Reddy Kamaganikuntla :)</a>
-            </div> */}
             </div>
             </div>
         </>
     )
 }
-
 export default Home

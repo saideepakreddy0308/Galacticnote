@@ -1,19 +1,16 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import Navbar from './Navbar';
-
 const Profile = () => {
     let [username, setUsername] = useState("Loading...");
     let [email, setEmail] = useState("Loading...");
     const host = "http://localhost:5000"
     const refDelete = useRef(null);
-
     const history = useHistory();
     const handleLogout = () => {
         localStorage.removeItem('token')
         history.push('/login')
     }
-
     const getUserData = async () => {
         const response = await fetch(`${host}/api/auth/getuser`, {
             method: "POST",
@@ -26,11 +23,9 @@ const Profile = () => {
         setUsername(json.name)
         setEmail(json.email)
     }
-
     const deleteClick = () => {
         refDelete.current.click()
     }
-
     const handleDelete = async () => {
         const response = await fetch(`${host}/api/auth/deleteuser`, {
             method: "DELETE",
@@ -43,27 +38,20 @@ const Profile = () => {
         console.log(json);
         localStorage.clear('token')
         history.push('/login')
-
-
     }
-
     useEffect(() => {
         getUserData()
     })
     return (
         <>
             <Navbar />
-            {/* <div className="justify-content-sm-center ">
-        <div className="bg-light"> */}
-            <div className="bg-light" style={{backgroundColor:"#85F4FF"}} >
+            <div className="bg-light" style={{ backgroundColor: "#85F4FF" }} >
                 <button ref={refDelete} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Launch demo modal
                 </button>
-
                 <div className="modal fade " id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog">
                         <div className="modal-content">
-
                             <div className="modal-header">
                                 <h5 className="modal-title text-danger" id="exampleModalLabel">Do you really want to delete your account ? </h5>
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -77,44 +65,28 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
-            <div className='justify-content-sm-center mx-auto mt-5 p-5 col-sm-9 card shadow-lg col-md-7 col-md-offset-4' style={{backgroundColor:"#EEEEEE"}}  >
+            <div className='justify-content-sm-center mx-auto mt-5 p-5 col-sm-9 card shadow-lg col-md-7 col-md-offset-4' style={{ backgroundColor: "#EEEEEE" }}  >
                 <form>
                     <h5 className="fs-1 mb-2"><span><img className="img-circle img-responsive" src="https://img.icons8.com/cotton/64/000000/cloud-user.png" /></span>Profile</h5>
                     <div className="form-group row">
-                        <label for="name" className="col-sm-2 col-form-label" style={{fontWeight:"bold"}}>Username</label>
+                        <label for="name" className="col-sm-2 col-form-label" style={{ fontWeight: "bold" }}>Username</label>
                         <div className="col-sm-10">
-                            <input type="text" readonly className="form-control-plaintext" style={{fontWeight:500}}  id="name" value={username} />
+                            <input type="text" readonly className="form-control-plaintext" style={{ fontWeight: 500 }} id="name" value={username} />
                         </div>
                     </div>
                     <div className="form-group row ">
-                        <label for="staticEmail" className="col-sm-2 col-form-label" style={{fontWeight:"bold"}}>Email</label>
+                        <label for="staticEmail" className="col-sm-2 col-form-label" style={{ fontWeight: "bold" }}>Email</label>
                         <div className="col-sm-10">
-                            <input type="email" readonly className="form-control-plaintext" style={{fontWeight:500}} id="staticEmail" value={email} />
+                            <input type="email" readonly className="form-control-plaintext" style={{ fontWeight: 500 }} id="staticEmail" value={email} />
                         </div>
                     </div>
                 </form>
                 <div className="my-3 ">
-                    <h2 className="" style={{color:"#34495e"}}>Delete Account</h2>
+                    <h2 className="" style={{ color: "#34495e" }}>Delete Account</h2>
                     <p>Please be certain, once you delete your account there's no way to recover this.</p>
-                    <button onClick={deleteClick} type="button" className="btn mb-2 btn-outline-light " style={{backgroundColor:"#34495e"}} autoFocus>Delete Account </button>
+                    <button onClick={deleteClick} type="button" className="btn mb-2 btn-outline-light " style={{ backgroundColor: "#34495e" }} autoFocus>Delete Account </button>
                 </div>
             </div>
-            {/* <div>
-                <h3 className="fs-1">Profile</h3>
-                <div className="container my-3">
-                    <p className="h6 my-2">Name: </p> <li className="list-group-item">{username}</li>
-                    <p className="h6 my-2">Email: </p> <li className="list-group-item">{email}</li>
-                </div>
-
-                <div className="my-3">
-                    <h2 className="text-warning">Delete Account</h2>
-                    <small>Once you delete you account, there is no going back. Please be certain.</small><br />
-                    <button onClick={deleteClick} type="button" className="btn my-2 btn-outline-warning">Delete Account</button>
-                </div>
-            </div> */}
-            {/* </div>
-        </div> */}
         </>)
 }
-
 export default Profile

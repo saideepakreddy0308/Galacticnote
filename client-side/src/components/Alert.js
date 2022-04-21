@@ -1,5 +1,4 @@
 import React from 'react'
-
 function Alert(props) {
     const capitalize = (word)=>{
         if (word == "danger"){
@@ -16,5 +15,4 @@ function Alert(props) {
         </div>
     )
 }
-
 export default Alert
