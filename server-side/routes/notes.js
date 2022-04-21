@@ -11,7 +11,7 @@ router.get('/fetchallnotes', fetchuser, async (req, res) => {
         res.json(notes)
     } catch (error) {
         console.error(error.message);
-        res.status(500).send("Internal Server Error");
+        res.status(500).send("INTERNAL SERVER ERROR");
     }
 })
 
@@ -37,7 +37,7 @@ router.post('/addnote', fetchuser, [
 
         } catch (error) {
             console.error(error.message);
-            res.status(500).send("Internal Server Error");
+            res.status(500).send("INTERNAL SERVER ERROR");
         }
     })
 // ROUTE 3: Update an existing Note using: PUT "/api/notes/updatenote". Login required
@@ -62,7 +62,7 @@ router.put('/updatenote/:id', fetchuser, async (req, res) => {
     res.json({note});
 } catch (error){
     console.error(error.message);
-    res.status(500).send("Internal Server Error");
+    res.status(500).send("INTERNAL SERVER ERROR");
 }
     })
 
@@ -82,7 +82,7 @@ router.delete('/deletenote/:id', fetchuser, async (req, res) => {
         res.json({ note: note });
     } catch (error) {
         console.error(error.message);
-        res.status(500).send("Internal Server Error");
+        res.status(500).send("INTERNAL SERVER ERROR");
     }
 })
 
@@ -90,7 +90,7 @@ router.delete('/deletenote/:id', fetchuser, async (req, res) => {
 //Delete all notes of a user using delete/api/notes/deleteallnotes.login required
 router.delete('/deleteallnotes', fetchuser, async (req, res)=>{
     try {
-        const notes = await Note.deleteMany({userid: req.user.id})
+        const notes = await Notes.deleteMany({userid: req.user.id})
         res.json(notes)
     }//catch the error
      catch (error) {

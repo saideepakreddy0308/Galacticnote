@@ -7,7 +7,7 @@ import Alert from "./Alert";
 const Signup = (props) => {
     const host = ""
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" })
-    let history = useHistory;
+    let history = useHistory()
     const [alert, setAlert] = useState(null);
     const showAlert = (message, type) => {
         setAlert({

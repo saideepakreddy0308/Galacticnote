@@ -21,17 +21,20 @@ const Navbar = () => {
                         <li className="nav-item">
                             <Link className={`nav-link ${location.pathname === "/about" ? "active" : ""}`} to="/about" variant="text" color="secondary" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "0.9rem" }}>About</Link>
                         </li>
+                        
                         {!localStorage.getItem('token') ? <form className="d-flex">
-                            <Link className="btn btn-primary mx-1 sm" to="/login" role="button" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "0.9rem" }}>Login</Link>
-                            <Link className="btn btn-primary mx-1 sm" to="/signup" role="button" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "0.9rem" }}>Signup</Link>
-                        </form> : <form className="d-flex">
+                            <li><Link className="btn btn-primary mx-1 sm" to="/login" role="button" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "0.9rem" }}>Login</Link></li>
+                            <li><Link className="btn btn-primary mx-1 sm" to="/signup" role="button" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "0.9rem" }}>Signup</Link></li>
+                        </form> : <form className="d-flex flex-important">
+                            
                             <li className="nav-item">
                                 <Link className={`nav-link ${location.pathname === "/" ? "active" : ""}`} aria-current="page" to="/" variant="text" color="secondary" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "0.9rem" }}>Home</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className={`nav-link ${location.pathname === "/profile" ? "active" : ""}`} aria-current="page" to="/profile" variant="text" color="secondary" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "0.9rem" }}>Profile</Link>
                             </li>
-                            <button size="small" onClick={handleLogout} className="btn btn-primary" variant="text" color="secondary" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "0.9rem" }}>Logout</button></form>
+                            <li>
+                            <button size="small" onClick={handleLogout} className="btn btn-primary" variant="text" color="secondary" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "0.9rem" }}>Logout</button></li></form>
                         }
                     </ul>
                 </div>
