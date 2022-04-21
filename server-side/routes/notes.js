@@ -79,10 +79,23 @@ router.delete('/deletenote/:id', fetchuser, async (req, res) => {
         }
 
         note = await Note.findByIdAndDelete(req.params.id)
-        res.json({ "Success": "Note has been deleted", note: note });
+        res.json({ note: note });
     } catch (error) {
         console.error(error.message);
         res.status(500).send("Internal Server Error");
+    }
+})
+
+    //Route 5:
+//Delete all notes of a user using delete/api/notes/deleteallnotes.login required
+router.delete('/deleteallnotes', fetchuser, async (req, res)=>{
+    try {
+        const notes = await Note.deleteMany({userid: req.user.id})
+        res.json(notes)
+    }//catch the error
+     catch (error) {
+        console.error(error.message)
+        res.status(500).send('INTERNAL SERVER ERROR')
     }
 })
 

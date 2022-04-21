@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import noteContext from "../context/notes/noteContext"
+import noteContext from "../context/notes/NoteContext"
 import { IconButton } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';

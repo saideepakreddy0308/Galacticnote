@@ -1,11 +1,15 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef ,useContext} from 'react'
 import { useHistory } from 'react-router-dom'
 import Navbar from './Navbar';
+import NoteContext from '../context/notes/NoteContext'
+
 const Profile = () => {
     let [username, setUsername] = useState("Loading...");
     let [email, setEmail] = useState("Loading...");
     const host = "http://localhost:5000"
     const refDelete = useRef(null);
+    const context = useContext(NoteContext)
+    const { deleteallnote } = context
     const history = useHistory();
     const handleLogout = () => {
         localStorage.removeItem('token')
@@ -23,10 +27,11 @@ const Profile = () => {
         setUsername(json.name)
         setEmail(json.email)
     }
-    const deleteClick = () => {
-        refDelete.current.click()
-    }
+    // const deleteClick = () => {
+    //     refDelete.current.click()
+    // }
     const handleDelete = async () => {
+        refDelete.current.click()
         const response = await fetch(`${host}/api/auth/deleteuser`, {
             method: "DELETE",
             headers: {
@@ -34,9 +39,13 @@ const Profile = () => {
                 'auth-token': localStorage.getItem('token')
             }
         })
-        const json = response.json()
-        console.log(json);
-        localStorage.clear('token')
+        
+        const json = await response.json();
+        if(json.status===500){console.log(json)}
+        // deleteallnote()
+        // console.log(json);
+        localStorage.removeItem('token')
+        // Showalert('Account Deleted successfully', 'success')
         history.push('/login')
     }
     useEffect(() => {
@@ -84,7 +93,7 @@ const Profile = () => {
                 <div className="my-3 ">
                     <h2 className="" style={{ color: "#34495e" }}>Delete Account</h2>
                     <p>Please be certain, once you delete your account there's no way to recover this.</p>
-                    <button onClick={deleteClick} type="button" className="btn mb-2 btn-outline-light " style={{ backgroundColor: "#34495e" }} autoFocus>Delete Account </button>
+                    <button onClick={handleDelete} type="button" className="btn mb-2 btn-outline-light " style={{ backgroundColor: "#34495e" }} autoFocus>Delete Account </button>
                 </div>
             </div>
         </>)

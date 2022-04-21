@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState, useHistory } from 'react'
-import noteContext from "../context/notes/noteContext"
+import noteContext from "../context/notes/NoteContext"
 import Noteitem from './Noteitem';
 import AddNote from './AddNote';
 import { Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from '@mui/material';

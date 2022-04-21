@@ -66,15 +66,16 @@ router.post('/login', [
   
     const {email, password} = req.body;
     try {
+      //finding user with given email
       let user = await User.findOne({email});
       if(!user){
-        success = false
-        return res.status(400).json({error: "Please try to login with correct credentials"});
+        // success = false
+        return res.status(400).json({success,error: "Please try to login with correct credentials"});
       }
   
-      const passwordCompare = await bcrypt.compare(password, user.password);
-      if(!passwordCompare){
-        success = false
+      const compareP = await bcrypt.compare(password, user.password);
+      if(!compareP){
+        // success = false
         return res.status(400).json({ success, error: "Please try to login with correct credentials" });
       }
   
@@ -85,7 +86,7 @@ router.post('/login', [
       }
       const authtoken = jwt.sign(data, JWT_SECRET);
       success = true;
-      res.json({ success, authtoken })
+      res.json({ success, authtoken: authtoken })
   
     } catch (error) {
       console.error(error.message);
@@ -106,5 +107,18 @@ router.post('/getuser', fetchuser,  async (req, res) => {
       res.status(500).send("Internal Server Error");
     }
   })
+
+  //Route 4:
+//Delete user using delete/api/auth/deleteuser.login required
+router.delete('/deleteuser', fetchuser, async (req, res) => {
+  try {
+      const userid = req.user.id
+      const user = await User.findByIdAndDelete(userid)
+      res.json({status:"User has been deleted", user: user})
+  } catch (error) {
+      console.error(error.message)
+      res.status(500).send('INTERNAL SERVER ERROR')
+  }
+})
 
 module.exports = router

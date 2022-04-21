@@ -23,8 +23,8 @@ function Home(props) {
             <div className="container-fluid bg-light" >
             <Alert alert={alert}/>
             <div>
-                <div className="row mb-5">
-                    <div className="col-md-5">
+                <div className="row">
+                    <div className="col-md-5 vh-100">
                         <h1 className="display-1 pt-5 ps-5 respo" style={{ fontFamily: "'Square Peg', cursive" }}><span style={{ color: "#9C27B0" }}>G</span>alacticnote</h1>
                         <p className="ps-5 respo" style={{ fontSize: "1.7rem", fontWeight: "bold" }}>The secure, powerful notebook</p>
                         <p className="ps-5 mt-3 respo" style={{ fontSize: "1rem" }}>This is the Notebook you'll never lose because it syncs to the cloud and across your devices. It's always backed-up and always up to date. Enjoy reading and working on your notes anytime, anywhere.</p>

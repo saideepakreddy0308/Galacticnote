@@ -1,13 +1,14 @@
-const connectToMongo = require('./db');
 const express = require('express')
-var cors = require('cors') 
-
-connectToMongo();
+const path = require('path')
+const cors = require('cors')
 const app = express()
-const port = 5000
+const connecttomongo = require('./db')
+const port = process.env.PORT || 5000
 
+connecttomongo()
 app.use(cors())
 app.use(express.json())
+app.use(express.static(path.join(__dirname, '..', 'build')));
 
 // Available Routes
 app.use('/api/auth', require('./routes/auth'))

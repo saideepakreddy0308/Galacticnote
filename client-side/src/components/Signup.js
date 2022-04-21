@@ -5,6 +5,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link, useNavigate } from "react-router-dom";
 import Alert from "./Alert";
 const Signup = (props) => {
+    const host = ""
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" })
     let history = useHistory;
     const [alert, setAlert] = useState(null);
@@ -16,6 +17,9 @@ const Signup = (props) => {
         setTimeout(() => {
             setAlert(null);
         }, 1500);
+    }
+    const onChange = (e) => {
+        setCredentials({ ...credentials, [e.target.name]: e.target.value })
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -37,11 +41,10 @@ const Signup = (props) => {
         }
         else {
             showAlert("Invalid Credentials", "danger")
+            setCredentials({ name: "", email: "", password: "", cpassword: "" })
         }
     }
-    const onChange = (e) => {
-        setCredentials({ ...credentials, [e.target.name]: e.target.value })
-    }
+   
     return (
         < >
             <Alert alert={alert} />

@@ -1,6 +1,10 @@
 import React, {useContext, useState} from 'react'
-import noteContext from "../context/notes/noteContext"
+import noteContext from "../context/notes/NoteContext"
 import Navbar from './Navbar';
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { TextField, Button, InputAdornment, InputLabel, OutlinedInput, FormControl, IconButton, FormHelperText } from '@mui/material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
 const AddNote = (props) => {
     const context = useContext(noteContext);
     const {addNote} = context;
@@ -22,6 +26,7 @@ const AddNote = (props) => {
             <div class="card-body p-4" style={{
         backgroundColor: "#EEEEEE"
             }}>
+                <Button className="mb-2" variant="text" color="secondary" startIcon={<ArrowBackIcon />} component={Link} to="/" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif" }}>Home</Button>
             <h3 style={{ color: "black" }}>Create new Note</h3>
             <p className="mb-4">Leave nothing behind.</p>
             <form className="my-3">
