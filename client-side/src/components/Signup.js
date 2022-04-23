@@ -5,7 +5,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link, useNavigate } from "react-router-dom";
 import Alert from "./Alert";
 const Signup = (props) => {
-    const host = ""
+    const host = "http://localhost:5000"
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" })
     let history = useHistory()
     const [alert, setAlert] = useState(null);

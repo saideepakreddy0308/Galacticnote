@@ -7,7 +7,7 @@ import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import Alert from "./Alert";
 const Login = (props) => {
-    const host = ''
+    const host = 'http://localhost:5000'
     const [credentials, setCredentials] = useState({ email: "", password: "" })
     let history = useHistory();
     const [alert, setAlert] = useState(null);
