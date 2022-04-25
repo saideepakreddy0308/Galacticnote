@@ -5,10 +5,10 @@ import {
   Route
 } from "react-router-dom";
 import Navbar from './components/Navbar';
-import  Home  from './components/Home';
+import Home from './components/Home';
 import About from './components/About';
 import NoteState from './context/notes/NoteState';
-import Alert  from './components/Alert';
+import Alert from './components/Alert';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Profile from './components/Profile';
@@ -32,26 +32,13 @@ function App() {
           {/* <Navbar /> */}
           {/* <Alert alert={alert}/> */}
           {/* <div className="container"> */}
-            <Switch>
-              <Route exact path="/">
-                <Home showAlert={showAlert}/>
-              </Route>
-              <Route exact path="/about">
-                <About />
-              </Route>
-              <Route exact path="/login">
-                <Login showAlert={showAlert}/>
-              </Route>
-              <Route exact path="/signup">
-                <Signup showAlert={showAlert}/>
-              </Route>
-              <Route exact path="/addnote">
-            <AddNote showAlert={showAlert}/>
-          </Route>
-              <Route exact path="/profile">
-            <Profile/>
-          </Route>
-            </Switch>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/about' component={About} />
+            <Route exact path='/signup' component={Signup} />
+            <Route exact path='/addnote' component={AddNote} />
+            <Route exact path='/profile' component={Profile} />
+          </Switch>
           {/* </div> */}
         </Router>
       </NoteState>

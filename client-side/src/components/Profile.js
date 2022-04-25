@@ -8,7 +8,7 @@ const Profile = () => {
     let [username, setUsername] = useState("Loading...");
     let [email, setEmail] = useState("Loading...");
     const [alert, setAlert] = useState(null);
-    const host = ""
+    const host = " "
     const refDelete = useRef(null);
     const context = useContext(NoteContext)
     const { deleteallnote } = context
@@ -91,15 +91,15 @@ const Profile = () => {
                 <form className='border-top border-secondary pt-1 pt-3'>
                     
                     <div className="form-group row mb-2">
-                        <label for="name" className="col-sm-2 col-form-label " style={{ fontWeight: "bold" }}>Username</label>
+                        <label htmlFor="name" className="col-sm-2 col-form-label " style={{ fontWeight: "bold" }}>Username</label>
                         <div className="col-sm-10">
-                            <input type="text" readonly className="form-control-plaintext px-2 border border-dark rounded" style={{ fontWeight: 500 }} id="name" value={username} />
+                            <input type="text" readOnly className="form-control-plaintext px-2 border border-dark rounded" style={{ fontWeight: 500 }} id="name" value={username} />
                         </div>
                     </div>
                     <div className="form-group row mb-4 ">
-                        <label for="staticEmail" className="col-sm-2 col-form-label " style={{ fontWeight: "bold" }}>Email</label>
+                        <label htmlFor="staticEmail" className="col-sm-2 col-form-label " style={{ fontWeight: "bold" }}>Email</label>
                         <div className="col-sm-10">
-                            <input type="email" readonly className="form-control-plaintext px-2 border border-dark rounded" style={{ fontWeight: 500 }} id="staticEmail" value={email} />
+                            <input type="email" readOnly className="form-control-plaintext px-2 border border-dark rounded" style={{ fontWeight: 500 }} id="staticEmail" value={email} />
                         </div>
                     </div>
                

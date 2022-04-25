@@ -1,5 +1,4 @@
-import { useHistory } from 'react-router-dom'
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation , useHistory} from "react-router-dom";
 import React, { useContext, useState } from 'react'
 import { TextField, Button, InputAdornment, InputLabel, OutlinedInput, FormControl, IconButton, FormHelperText } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -7,7 +6,7 @@ import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import Alert from "./Alert";
 const Login = (props) => {
-    const host = 'http://localhost:5000'
+    const host = ''
     const [credentials, setCredentials] = useState({ email: "", password: "" })
     let history = useHistory();
     const [alert, setAlert] = useState(null);
