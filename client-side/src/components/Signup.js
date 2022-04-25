@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
 import { TextField, Button, InputAdornment, InputLabel, OutlinedInput, FormControl, IconButton, FormHelperText } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useHistory } from "react-router-dom";
 import Alert from "./Alert";
 const Signup = (props) => {
-    const host = "http://localhost:5000"
+    const host = " "
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" })
     let history = useHistory()
     const [alert, setAlert] = useState(null);

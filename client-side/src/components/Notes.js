@@ -1,4 +1,5 @@
-import React, { useContext, useEffect, useRef, useState, useHistory } from 'react'
+import React, { useContext, useEffect, useRef, useState} from 'react'
+import { useHistory } from 'react-router-dom';
 import noteContext from "../context/notes/NoteContext"
 import Noteitem from './Noteitem';
 import AddNote from './AddNote';
