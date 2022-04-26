@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <p align="center">
-    Galacticnote 
+    Notebook on Cloud
     <br />
     <br />
     <!-- <a href="https://github.com/saideepakreddy0308">View Demo</a> -->
@@ -38,13 +38,15 @@ All Notes
 Create Note
 <img src="./project-images/create-note.png" alt="Logo" >
 
-<!-- edit Note -->
-<!-- <img src="./project-images/edit Note.png" alt="Logo" > -->
+Edit Note
+<!-- <img src="./project-images/update-note.png" alt="Logo" > -->
 
 About Page
 <img src="./project-images/about-1.png" alt="Logo">
 <img src="./project-images/about-2.png" alt="Logo">
 <img src="./project-images/about-3.png" alt="Logo">
+
+#### Logged in with credentials --  User: Jane Doe , Email: `janedoe@outlook.com` , Password: ******  
 
 Profile Page
 <img src="./project-images/profile.png" alt="Logo">
@@ -98,7 +100,7 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    git clone https://github.com/saideepakreddy0308/Galacticnote
    ```
-2. Suggest (`I personally suggest clone commit 288dcd1 and npm run both in client-side folder, if you are complete beginner`)
+2. Suggest ( If you are beginner, clone commit 288dcd1 and ``npm run both`` in client-side folder (Change to ``Client``) for localhost setup )
 
 3. Install NPM packages
    ```sh
